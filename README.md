@@ -18,8 +18,9 @@ Updates erscheinen danach automatisch im Add-on Store, sobald hier die Version i
 
 1. `homeassistant/custom_sentences/de/rezeptbuch.yaml` nach `/config/custom_sentences/de/` kopieren.
 2. Den Inhalt von `homeassistant/configuration_rezeptbuch.yaml` in die `configuration.yaml` einfügen.
-3. **Wichtig:** In `rest_command` den Hostnamen `local-rezeptbuch` durch den Hostnamen ersetzen,
-   der auf der Info-Seite des Add-ons steht (bei Installation aus diesem Repository z. B. `a1b2c3d4-rezeptbuch`).
+3. Der Hostname in `rest_command` ist schon auf `83bccaf2-rezeptbuch` eingestellt, so heißt das Add-on
+   bei Installation aus diesem Repository. Nur bei einer lokalen Installation (`/addons/rezeptbuch`)
+   muss dort `local-rezeptbuch` stehen.
 4. Home Assistant neu starten und im Assist-Dialog testen, z. B. „Welche Backen Rezepte haben wir?“.
 
 ## Aufbau
