@@ -1,0 +1,91 @@
+# In die configuration.yaml einfügen (oder als Package einbinden) und Home Assistant neu starten.
+#
+# WICHTIG: Der Hostname "local-rezeptbuch" gilt, wenn das Add-on als lokales Add-on
+# (Ordner /addons/rezeptbuch) installiert ist. Bei Installation aus einem GitHub-Repository
+# steht der richtige Hostname auf der Info-Seite des Add-ons (z. B. "a1b2c3d4-rezeptbuch").
+
+rest_command:
+  rezeptbuch:
+    url: "http://local-rezeptbuch:8099/api/sprache/{{ aktion }}?name={{ name | default('') | urlencode }}"
+    method: GET
+    timeout: 20
+
+intent_script:
+  RezeptStarten:
+    action:
+      - action: rest_command.rezeptbuch
+        data:
+          aktion: start
+          name: "{{ rezept }}"
+        response_variable: antwort
+      - stop: ""
+        response_variable: antwort
+    speech:
+      text: >-
+        {{ action_response.content.antwort if action_response.content is mapping
+           else 'Das Rezeptbuch antwortet gerade nicht.' }}
+  RezeptZutaten:
+    action:
+      - action: rest_command.rezeptbuch
+        data:
+          aktion: zutaten
+          name: "{{ rezept }}"
+        response_variable: antwort
+      - stop: ""
+        response_variable: antwort
+    speech:
+      text: >-
+        {{ action_response.content.antwort if action_response.content is mapping
+           else 'Das Rezeptbuch antwortet gerade nicht.' }}
+  RezeptWeiter:
+    action:
+      - action: rest_command.rezeptbuch
+        data:
+          aktion: weiter
+          name: ""
+        response_variable: antwort
+      - stop: ""
+        response_variable: antwort
+    speech:
+      text: >-
+        {{ action_response.content.antwort if action_response.content is mapping
+           else 'Das Rezeptbuch antwortet gerade nicht.' }}
+  RezeptZurueck:
+    action:
+      - action: rest_command.rezeptbuch
+        data:
+          aktion: zurueck
+          name: ""
+        response_variable: antwort
+      - stop: ""
+        response_variable: antwort
+    speech:
+      text: >-
+        {{ action_response.content.antwort if action_response.content is mapping
+           else 'Das Rezeptbuch antwortet gerade nicht.' }}
+  RezeptWiederholen:
+    action:
+      - action: rest_command.rezeptbuch
+        data:
+          aktion: wiederholen
+          name: ""
+        response_variable: antwort
+      - stop: ""
+        response_variable: antwort
+    speech:
+      text: >-
+        {{ action_response.content.antwort if action_response.content is mapping
+           else 'Das Rezeptbuch antwortet gerade nicht.' }}
+  RezeptListe:
+    action:
+      - action: rest_command.rezeptbuch
+        data:
+          aktion: liste
+          name: "{{ kategorie }}"
+        response_variable: antwort
+      - stop: ""
+        response_variable: antwort
+    speech:
+      text: >-
+        {{ action_response.content.antwort if action_response.content is mapping
+           else 'Das Rezeptbuch antwortet gerade nicht.' }}
