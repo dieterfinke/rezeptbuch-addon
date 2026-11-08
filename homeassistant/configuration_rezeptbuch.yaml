@@ -1,12 +1,13 @@
 # In die configuration.yaml einfügen (oder als Package einbinden) und Home Assistant neu starten.
 #
-# WICHTIG: Der Hostname "local-rezeptbuch" gilt, wenn das Add-on als lokales Add-on
-# (Ordner /addons/rezeptbuch) installiert ist. Bei Installation aus einem GitHub-Repository
-# steht der richtige Hostname auf der Info-Seite des Add-ons (z. B. "a1b2c3d4-rezeptbuch").
+# WICHTIG: Der Hostname "83bccaf2-rezeptbuch" gilt bei Installation aus dem Repository
+# https://github.com/dieterfinke/rezeptbuch-addon (so steht er auch auf der Info-Seite des Add-ons).
+# Wurde das Add-on stattdessen als lokales Add-on (Ordner /addons/rezeptbuch) installiert,
+# lautet er "local-rezeptbuch".
 
 rest_command:
   rezeptbuch:
-    url: "http://local-rezeptbuch:8099/api/sprache/{{ aktion }}?name={{ name | default('') | urlencode }}"
+    url: "http://83bccaf2-rezeptbuch:8099/api/sprache/{{ aktion }}?name={{ name | default('') | urlencode }}"
     method: GET
     timeout: 20
 
