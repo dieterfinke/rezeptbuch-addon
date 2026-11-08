@@ -1,5 +1,5 @@
 name: Rezeptbuch
-version: "0.1.0"
+version: "0.1.1"
 slug: rezeptbuch
 description: Familienrezepte scannen, verwalten und per Sprache abrufen
 url: https://github.com/dieterfinke/rezeptbuch-addon
