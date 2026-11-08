@@ -1,0 +1,41 @@
+# Ablegen unter: /config/custom_sentences/de/rezeptbuch.yaml
+# Danach Home Assistant neu starten (oder Entwicklerwerkzeuge → YAML → "Konversation" neu laden).
+language: "de"
+intents:
+  RezeptStarten:
+    data:
+      - sentences:
+          - "(koch|back|grill) mit mir {rezept}"
+          - "(starte|öffne|lies) [das] rezept [für|von] {rezept}"
+          - "wie (geht|macht man|mache ich|backe ich|koche ich) {rezept}"
+  RezeptZutaten:
+    data:
+      - sentences:
+          - "(was|welche zutaten) (brauche ich|brauch ich) für {rezept}"
+          - "zutaten (für|von) {rezept}"
+  RezeptWeiter:
+    data:
+      - sentences:
+          - "nächster schritt"
+          - "[und] weiter im rezept"
+          - "wie geht es weiter"
+  RezeptZurueck:
+    data:
+      - sentences:
+          - "(vorheriger|letzter) schritt"
+          - "einen schritt zurück"
+  RezeptWiederholen:
+    data:
+      - sentences:
+          - "(wiederhole|wiederhol) [den] schritt"
+          - "was war [nochmal] der schritt"
+  RezeptListe:
+    data:
+      - sentences:
+          - "welche {kategorie} rezepte (habe ich|haben wir|gibt es)"
+          - "welche rezepte (habe ich|haben wir|gibt es) (in|unter|bei) {kategorie}"
+lists:
+  rezept:
+    wildcard: true
+  kategorie:
+    wildcard: true
